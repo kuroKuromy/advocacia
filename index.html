@@ -1,281 +1,287 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
-    <title>HMR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMR LOGIN</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-image: url('login2.JPG');
-            background-size: cover;   
-            background-repeat: no-repeat; 
-            background-position: center;  
+            background-image: url('backgrond login2.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             background-attachment: fixed;
+
             display: flex;
             justify-content: center;
             align-items: center;
+
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
         }
 
-        .login2 {
+        .login {
             display: flex;
-            flex-direction: column; 
-            justify-content: center; 
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 30px;
-            
-            background-color: rgba(255, 255, 255, 0.9); 
-            backdrop-filter: blur(12px);                
+            gap: 15px;
+
+            background-color: rgba(105, 105, 105, 0.158);
+            backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
 
-            width: 1200px;
-            height: 500px;
+            width: 380px;
             padding: 40px 30px;
             border-radius: 12px;
-            box-sizing: border-box;
-            position: relative;
         }
 
-        .login2 h2 {
-            color: #090909;
+        .login h2,
+        .login p {
+            color: #fff;
             margin: 0;
-            font-size: 1.8rem;
         }
 
-        /* Container dos 3 perfis - Espaçamento maior entre eles */
-        .profiles-container {
-            display: flex;
-            gap: 70px; 
-            margin-top: 10px;
+        .login p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            opacity: 0.8;
         }
 
-        .profile-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .profile-item:hover {
-            transform: scale(1.05);
-        }
-
-        /* Tamanho maior dos avatares */
-        .profile-avatar {
-            width: 140px;  
-            height: 140px; 
-            border-radius: 50%;
-            background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            margin-bottom: 12px;
-            overflow: hidden;
-        }
-
-        .profile-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .profile-avatar svg {
-            width: 80px;  
-            height: 80px;
-            fill: #fff;
-        }
-
-        .profile-name {
-            font-weight: bold;
-            color: #333;
-            font-size: 1.1rem;
-        }
-
-        /* Modal Overlay (Layout de Senha) */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .modal-card {
-            background-color: #4a4a4a;
-            width: 320px;
-            padding: 30px;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        .input-group {
             position: relative;
-        }
-
-        .modal-card .profile-avatar {
-            width: 100px;  
-            height: 100px;
-            margin-top: -60px;
-            border: 4px solid #4a4a4a;
-        }
-
-        .modal-card h3 {
-            color: #fff;
-            margin: 10px 0 0 0;
-            font-size: 1.1rem;
-        }
-
-        .modal-card input[type="password"] {
             width: 100%;
-            padding: 12px;
-            margin: 20px 0 15px 0;
-            border: none;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 1rem;
+        }
+
+        .login input {
+            width: 100%;
+            height: 44px;
+            padding: 12px 40px 12px 16px;
+
+            font-size: 15px;
+            color: #fff;
+
+            background-color: rgba(85, 70, 70, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
             outline: none;
+
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .modal-card button {
-            width: 100%;
-            padding: 12px;
-            background-color: #2b2b2b;
-            color: white;
+        .login input:focus {
+            background-color: #ffffff;
+            color: #333;
+            border-color: #8c5830;
+            box-shadow: 0 0 8px rgba(140, 88, 48, 0.4);
+        }
+
+        .login input::placeholder {
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        .btn {
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 11px 24px;
+            border-radius: 8px;
+            cursor: pointer;
             border: none;
-            border-radius: 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background 0.2s;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            line-height: 1;
+            transition: all 0.2s ease;
+
+            background: #7c4c00;
+            color: #ffffff;
+
+            box-shadow: 0 6px 16px rgba(255, 205, 111, 0.35);
         }
 
-        .modal-card button:hover {
-            background-color: #1a1a1a;
+        .btn:hover {
+            opacity: 0.88;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 197, 111, 0.45);
         }
 
-        .close-btn {
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .toggle-password {
             position: absolute;
-            top: 10px;
-            right: 15px;
-            color: #fff;
-            font-size: 20px;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+
             cursor: pointer;
+            background: transparent;
+            border: none;
+            padding: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+
+        .toggle-password img {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
+
     </style>
 </head>
+
 <body>
 
-    <div class="login2">
-        <h2>Selecione seu perfil</h2>
-        
-        <div class="profiles-container">
-            <!-- Perfil 1 -->
-            <div class="profile-item" onclick="openPasswordModal('adv1')">
-                <div class="profile-avatar">
-                    <img src="foto1.jpg" alt="Advogado 1">
-                </div>
-                <span class="profile-name">Advogado 1</span>
-            </div>
+    <div class="login">
 
-            <!-- Perfil 2 -->
-            <div class="profile-item" onclick="openPasswordModal('adv2')">
-                <div class="profile-avatar">
-                    <img src="foto2.jpg" alt="Advogado 2">
-                </div>
-                <span class="profile-name">Advogado 2</span>
-            </div>
+        <h2>BEM VINDO</h2>
+        <p>FAÇA LOGIN</p>
 
-            <!-- Perfil 3 -->
-            <div class="profile-item" onclick="openPasswordModal('adv3')">
-                <div class="profile-avatar">
-                    <img src="foto3.png" alt="Advogado 3">
-                </div>
-                <span class="profile-name">Advogado 3</span>
-            </div>
+        <div class="input-group">
+            <input
+                type="email"
+                id="emailInput"
+                placeholder="EMAIL"
+                required
+                autocomplete="email"
+            >
         </div>
-    </div>
 
-    <!-- Modal Layout para colocar a senha -->
-    <div class="modal-overlay" id="passwordModal">
-        <div class="modal-card">
-            <span class="close-btn" onclick="closePasswordModal()">&times;</span>
-            <div class="profile-avatar" id="modalAvatarContainer"></div>
-            <h3 id="modalProfileName"></h3>
-            <input type="password" placeholder="Digite sua senha" id="passwordInput" onkeydown="handleKeyPress(event)">
-            <button onclick="login()">Entrar</button>
+        <div class="input-group">
+
+            <input
+                type="password"
+                id="passwordInput"
+                placeholder="SENHA"
+                required
+                autocomplete="current-password"
+            >
+
+            <button
+                type="button"
+                class="toggle-password"
+                onclick="togglePassword()"
+            >
+                <img
+                    id="eyeIcon"
+                    src="eyes open.png"
+                    alt="Mostrar senha"
+                >
+            </button>
+
         </div>
+
+        <button
+            class="btn"
+            type="button"
+            id="loginBtn"
+            disabled
+        >
+            LOGIN
+        </button>
+
     </div>
 
     <script>
-        // Mapeamento dos perfis com senha e URL de destino
-        const usersData = {
-            'adv1': {
-                name: 'Advogado 1',
-                image: 'foto1.jpg',
-                password: 'alexa123',
-                redirectUrl: 'alexaprofile.html'
-            },
-            'adv2': {
-                name: 'Advogado 2',
-                image: 'foto2.jpg',
-                password: 'eduardo123',
-                redirectUrl: 'perfil_adv2.html'
-            },
-            'adv3': {
-                name: 'Advogado 3',
-                image: 'foto3.png',
-                password: 'roberto123',
-                redirectUrl: 'perfil_adv3.html'
-            }
-        };
 
-        let activeUserId = null;
+        // DADOS CORRETOS DO LOGIN
+        const EMAIL_CORRETO = "teuemail@exemplo.com";
+        const SENHA_CORRETA = "advogado123";
 
-        function openPasswordModal(userId) {
-            activeUserId = userId;
-            const user = usersData[userId];
 
-            document.getElementById('modalProfileName').innerText = user.name;
-            document.getElementById('modalAvatarContainer').innerHTML = `<img src="${user.image}" alt="${user.name}">`;
+        // ELEMENTOS DO HTML
+        const emailInput = document.getElementById('emailInput');
+        const passwordInput = document.getElementById('passwordInput');
+        const loginBtn = document.getElementById('loginBtn');
 
-            document.getElementById('passwordModal').style.display = 'flex';
-            document.getElementById('passwordInput').value = '';
-            document.getElementById('passwordInput').focus();
-        }
 
-        function closePasswordModal() {
-            document.getElementById('passwordModal').style.display = 'none';
-            activeUserId = null;
-        }
+        // VERIFICA SE OS CAMPOS ESTÃO PREENCHIDOS
+        function validarCampos() {
 
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                login();
-            }
-        }
+            if (
+                emailInput.value.trim() !== "" &&
+                passwordInput.value.trim() !== ""
+            ) {
 
-        function login() {
-            if (!activeUserId) return;
+                loginBtn.disabled = false;
 
-            const inputPassword = document.getElementById('passwordInput').value;
-            const currentUser = usersData[activeUserId];
-
-            if (inputPassword === currentUser.password) {
-                window.location.href = currentUser.redirectUrl;
             } else {
-                alert('Senha incorreta. Tente novamente.');
-                document.getElementById('passwordInput').value = '';
-                document.getElementById('passwordInput').focus();
+
+                loginBtn.disabled = true;
+
             }
+
         }
+
+
+        // MONITORA OS CAMPOS
+        emailInput.addEventListener('input', validarCampos);
+        passwordInput.addEventListener('input', validarCampos);
+
+
+        // MOSTRAR OU ESCONDER SENHA
+        function togglePassword() {
+
+            const eyeIcon = document.getElementById('eyeIcon');
+
+            if (passwordInput.type === 'password') {
+
+                passwordInput.type = 'text';
+                eyeIcon.src = 'eyes close.png';
+                eyeIcon.alt = 'Esconder senha';
+
+            } else {
+
+                passwordInput.type = 'password';
+                eyeIcon.src = 'eyes open.png';
+                eyeIcon.alt = 'Mostrar senha';
+
+            }
+
+        }
+
+
+        // VALIDAR LOGIN E REDIRECIONAR
+        loginBtn.addEventListener('click', function() {
+
+            const email = emailInput.value.trim();
+            const senha = passwordInput.value;
+
+            if (
+                email === EMAIL_CORRETO &&
+                senha === SENHA_CORRETA
+            ) {
+
+                alert("Login efetuado com sucesso!");
+
+                // ABRE A PRÓXIMA PÁGINA
+                window.location.href = "loginadv.html";
+
+            } else {
+
+                alert("E-mail ou senha incorretos!");
+
+            }
+
+        });
+
     </script>
+
 </body>
 </html>
